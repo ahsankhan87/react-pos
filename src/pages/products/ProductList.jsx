@@ -15,7 +15,7 @@ function productList() {
             /* AXIOS */
             const response = await axios.get('http://localhost:3000/products')
             if (response.status === 200) setproducts(response.data)
-            
+            console.log(response.data)
         } catch (error) {
             console.error('error', error)
         }
@@ -29,10 +29,10 @@ function productList() {
 
             {products?.map((product) => {
                 return (
-                    <div key={product?.id}>
+                    <div key={product?.item_id}>
                         <p>{product?.name} - {product?.type} - {product?.breed}</p>
 
-                        <Link to={`/${product?.id}`}>
+                        <Link to={`/${product?.item_id}`}>
                             <button>product detail</button>
                         </Link>
                     </div>

@@ -56,8 +56,8 @@ function ProductDetail({ setProductToEdit }) {
                 <>
                     <p>Product name: {Product.name}</p>
                     <p>Product type: {Product.type}</p>
-                    <p>Product age: {Product.age}</p>
-                    <p>Product breed: {Product.breed}</p>
+                    <p>Product qty: {Product.qty}</p>
+                    <p>Product costPrice: {Product.costPrice}</p>
 
                     <div style={{ display: 'flex', justifyContent: 'center', aligniItems: 'center' }}>
                         

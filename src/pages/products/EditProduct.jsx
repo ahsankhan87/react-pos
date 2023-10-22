@@ -5,21 +5,21 @@ function EditProduct({ ProductToEdit }) {
 
     const [ProductName, setProductName] = useState(ProductToEdit?.name)
     const [ProductType, setProductType] = useState(ProductToEdit?.type)
-    const [ProductAge, setProductAge] = useState(ProductToEdit?.age)
-    const [ProductBreed, setProductBreed] = useState(ProductToEdit?.breed)
+    const [Productqty, setProductqty] = useState(ProductToEdit?.qty)
+    const [ProductcostPrice, setProductcostPrice] = useState(ProductToEdit?.costPrice)
 
     const editProduct = async () => {
         try {
             const ProductData = {
-                id: ProductToEdit.id,
+                item_id: ProductToEdit.item_id,
                 name: ProductName,
                 type: ProductType,
-                age: ProductAge,
-                breed: ProductBreed
+                qty: Productqty,
+                costPrice: ProductcostPrice
             }
 
             /* FETCH */
-            // const response = await fetch(`http://localhost:3000/Products/${ProductToEdit.id}`, {
+            // const response = await fetch(`http://localhost:3000/Products/${ProductToEdit.item_id}`, {
             //     method: 'PUT',
             //     headers: {
             //         'Content-Type': 'application/json'
@@ -29,13 +29,13 @@ function EditProduct({ ProductToEdit }) {
 
             /* AXIOS */
             const response = await axios.put(
-                `http://localhost:3000/products/${ProductToEdit.id}`,
+                `http://localhost:3000/products/${ProductToEdit.item_id}`,
                 ProductData,
                 { headers: { 'Content-Type': 'application/json' } }
             )
             
             if (response.status === 200) {
-                window.location.href = `/${ProductToEdit.id}`
+                window.location.href = `/${ProductToEdit.item_id}`
             }
         } catch (error) {
             console.error('error', error)
@@ -57,13 +57,13 @@ function EditProduct({ ProductToEdit }) {
             </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', margin: 20 }}>
-                <label>Product age</label>
-                <input type='text' value={ProductAge} onChange={e => setProductAge(e.target.value)} />
+                <label>Product qty</label>
+                <input type='text' value={Productqty} onChange={e => setProductqty(e.target.value)} />
             </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', margin: 20 }}>
-                <label>Product breed</label>
-                <input type='text' value={ProductBreed} onChange={e => setProductBreed(e.target.value)} />
+                <label>Product costPrice</label>
+                <input type='text' value={ProductcostPrice} onChange={e => setProductcostPrice(e.target.value)} />
             </div>
 
             <button
