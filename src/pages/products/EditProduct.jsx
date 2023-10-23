@@ -4,9 +4,9 @@ import axios from 'axios'
 function EditProduct({ ProductToEdit }) {
 
     const [ProductName, setProductName] = useState(ProductToEdit?.name)
-    const [ProductType, setProductType] = useState(ProductToEdit?.type)
-    const [Productqty, setProductqty] = useState(ProductToEdit?.qty)
-    const [ProductcostPrice, setProductcostPrice] = useState(ProductToEdit?.costPrice)
+    const [ProductType, setProductType] = useState(ProductToEdit?.item_type)
+    const [Productqty, setProductqty] = useState(ProductToEdit?.brand)
+    const [ProductcostPrice, setProductcostPrice] = useState(ProductToEdit?.cost_price)
 
     const editProduct = async () => {
         try {
@@ -14,8 +14,8 @@ function EditProduct({ ProductToEdit }) {
                 item_id: ProductToEdit.item_id,
                 name: ProductName,
                 type: ProductType,
-                qty: Productqty,
-                costPrice: ProductcostPrice
+                quantity: Productqty,
+                cost_price: ProductcostPrice
             }
 
             /* FETCH */
@@ -70,7 +70,7 @@ function EditProduct({ ProductToEdit }) {
                 style={{ marginTop: 30 }}
                 onClick={() => editProduct()}
             >
-                Save changes
+                Update changes
             </button>
         </div>
     )

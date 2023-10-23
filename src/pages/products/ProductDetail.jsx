@@ -56,12 +56,12 @@ function ProductDetail({ setProductToEdit }) {
                 <>
                     <p>Product name: {Product.name}</p>
                     <p>Product type: {Product.type}</p>
-                    <p>Product qty: {Product.qty}</p>
+                    <p>Product qty: {Product.quantity}</p>
                     <p>Product costPrice: {Product.costPrice}</p>
 
                     <div style={{ display: 'flex', justifyContent: 'center', aligniItems: 'center' }}>
                         
-                        <Link to={`/${Product?.id}/edit`}>
+                        <Link to={`/${Product?.ProductId}/edit`}>
                             <button style={{ marginRight: 10 }}>Edit Product</button>
                         </Link>
 
